@@ -1,0 +1,15 @@
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\bin\Debug\net10.0\Catalog.Application.deps.json
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\bin\Debug\net10.0\Catalog.Application.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\bin\Debug\net10.0\Catalog.Application.pdb
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\bin\Debug\net10.0\Catalog.Core.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\bin\Debug\net10.0\Catalog.Core.pdb
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog.Application.csproj.AssemblyReference.cache
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog.Application.AssemblyInfoInputs.cache
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog.Application.AssemblyInfo.cs
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog.Application.csproj.CoreCompileInputs.cache
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog..75771DFE.Up2Date
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog.Application.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\refint\Catalog.Application.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\Catalog.Application.pdb
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Application\obj\Debug\net10.0\ref\Catalog.Application.dll

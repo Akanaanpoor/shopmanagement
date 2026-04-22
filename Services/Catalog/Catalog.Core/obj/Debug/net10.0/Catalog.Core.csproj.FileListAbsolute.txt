@@ -1,0 +1,12 @@
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\bin\Debug\net10.0\Catalog.Core.deps.json
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\bin\Debug\net10.0\Catalog.Core.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\bin\Debug\net10.0\Catalog.Core.pdb
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\Catalog.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\Catalog.Core.AssemblyInfoInputs.cache
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\Catalog.Core.AssemblyInfo.cs
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\Catalog.Core.csproj.CoreCompileInputs.cache
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\Catalog.Core.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\refint\Catalog.Core.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\Catalog.Core.pdb
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\ref\Catalog.Core.dll
+D:\Aref Projects\CoursesProject\UdemyCourse\ShopManagement\Services\Catalog\Catalog.Core\obj\Debug\net10.0\Catalog.Core.csproj.AssemblyReference.cache
