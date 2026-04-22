@@ -30,7 +30,7 @@ public class ProductRepository : IProductRepository
     public async Task<Pagination<Product>> GetProducts(CatalogSpecParams catalogSpecParams)
     {
         return await _products.Find(_ => true).ToListAsync();
-    }
+    } 
 
     public async Task<Product> GetProductById(string productId)
     {
