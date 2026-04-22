@@ -27,10 +27,34 @@ public class ProductRepository : IProductRepository
         return await _products.Find(_ => true).ToListAsync();
     }
 
-    public async Task<Pagination<Product>> GetProducts(CatalogSpecParams catalogSpecParams)
+    public async Task<Pagination<Product>> GetProducts(CatalogSpecParams catalogSpec, CancellationToken cancellationToken)
     {
-        return await _products.Find(_ => true).ToListAsync();
-    } 
+        var builder = Builders<Product>.Filter;
+
+        var filter = builder.Empty;
+
+        if (!string.IsNullOrEmpty(catalogSpec.Search))
+        {
+            filter &= builder.Where(x => x.Name.ToLower().Contains(catalogSpec.Search.ToLower()));
+        }
+
+        if (!string.IsNullOrEmpty(catalogSpec.BrandId))
+        {
+            filter &= builder.Eq(x => x.Brand.Id, catalogSpec.BrandId);
+        }
+
+        if (!string.IsNullOrEmpty(catalogSpec.TypeId))
+        {
+            filter &= builder.Eq(x => x.Type.Id, catalogSpec.TypeId);
+        }
+
+        var count = await _products.CountDocumentsAsync(filter, cancellationToken: cancellationToken);
+
+        var data = await ApplyDataFilterAsync(catalogSpec, filter,cancellationToken);
+
+        return new Pagination<Product>(catalogSpec.PageIndex, catalogSpec.PageSize, (int)count, data);
+    }
+
 
     public async Task<Product> GetProductById(string productId)
     {
@@ -61,7 +85,7 @@ public class ProductRepository : IProductRepository
     public async Task<bool> UpdateProduct(Product product)
     {
         var updatedItem = await _products.ReplaceOneAsync(p => p.Id == product.Id, product);
-        
+
         return updatedItem.IsAcknowledged && updatedItem.ModifiedCount > 0;
     }
 
@@ -80,5 +104,31 @@ public class ProductRepository : IProductRepository
     public async Task<ProductType> GetProductType(string typeId)
     {
         return await _types.Find(b => b.Id == typeId).FirstOrDefaultAsync();
+    }
+
+    private async Task<IReadOnlyCollection<Product>> ApplyDataFilterAsync(CatalogSpecParams catalogSpecParams, FilterDefinition<Product> filter, CancellationToken cancellationToken)
+    {
+        var sortDefinition = Builders<Product>.Sort.Ascending(x => x.Name);
+
+        if (!string.IsNullOrEmpty(catalogSpecParams.Sort))
+        {
+            sortDefinition = catalogSpecParams.Sort switch
+            {
+                "NameAsc" => Builders<Product>.Sort.Ascending(x => x.Name),
+                "NameDesc" => Builders<Product>.Sort.Descending(x => x.Name),
+                "DateAsc" => Builders<Product>.Sort.Ascending(x => x.CreatedDate),
+                "DateDesc" => Builders<Product>.Sort.Descending(x => x.CreatedDate),
+                "priceAsc" => Builders<Product>.Sort.Ascending(x => x.Price),
+                "priceDesc" => Builders<Product>.Sort.Descending(x => x.Price),
+                _ => Builders<Product>.Sort.Ascending(a => a.Name)
+            };
+        }
+
+        return await _products
+            .Find(filter)
+            .Sort(sortDefinition)
+            .Skip(catalogSpecParams.PageSize * (catalogSpecParams.PageIndex - 1))
+            .Limit(catalogSpecParams.PageSize)
+            .ToListAsync(cancellationToken);
     }
 }

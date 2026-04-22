@@ -7,7 +7,7 @@ public interface IProductRepository
 {
     Task<IEnumerable<Product>> GetAllProducts();
     
-    Task<Pagination<Product>> GetProducts(CatalogSpecParams catalogSpecParams);
+    Task<Pagination<Product>> GetProducts(CatalogSpecParams catalogSpec, CancellationToken cancellationToken);
     
     Task<Product> GetProductById(string productId);
     
