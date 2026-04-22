@@ -1,6 +1,8 @@
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
+using Catalog.Infrastructure.Configuration;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace Catalog.Infrastructure.Repositories;
@@ -9,11 +11,13 @@ public class TypeRepository : ITypeRepository
 {
     private readonly IMongoCollection<ProductType> _types;
 
-    public TypeRepository(IConfiguration configuration)
+    public TypeRepository(IOptions<DatabaseConfiguration> configuration)
     {
-        var client = new MongoClient(configuration["DatabaseSettings:ConnectionString"]);
-        var database = client.GetDatabase(configuration["DatabaseSettings:DatabaseName"]);
-        _types = database.GetCollection<ProductType>(configuration["DatabaseSettings:TypeCollectionName"]);
+        var configurations = configuration.Value;
+        
+        var client = new MongoClient(configurations.ConnectionString);
+        var database = client.GetDatabase(configurations.DatabaseName);
+        _types = database.GetCollection<ProductType>(configurations.TypeCollectionName);
     }
 
     public async Task<IEnumerable<ProductType>> GetProductTypesAsync()
