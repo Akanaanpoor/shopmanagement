@@ -20,12 +20,12 @@ public class BrandRepository : IBrandRepository
         _brands = database.GetCollection<ProductBrand>(configurations.BrandCollectionName);
     }
 
-    public async Task<IEnumerable<ProductBrand>> GetProductBrandsAsync()
+    public async Task<IEnumerable<ProductBrand>> GetAllBrandsAsync()
     {
         return await _brands.Find(_ => true).ToListAsync();
     }
 
-    public async Task<ProductBrand> GetProductBrandByIdAsync(string id)
+    public async Task<ProductBrand> GetBrandByIdAsync(string id)
     {
         return await _brands.Find(b => b.Id == id).FirstOrDefaultAsync();
     }

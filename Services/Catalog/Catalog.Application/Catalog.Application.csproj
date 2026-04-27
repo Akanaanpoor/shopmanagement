@@ -14,4 +14,10 @@
       <PackageReference Include="MediatR" Version="14.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Mediators\Brands\Command\" />
+      <Folder Include="Mediators\Products\" />
+      <Folder Include="Mediators\Types\" />
+    </ItemGroup>
+
 </Project>

@@ -4,7 +4,7 @@ namespace Catalog.Core.Repositories;
 
 public interface IBrandRepository
 {
-    Task<IEnumerable<ProductBrand>> GetProductBrandsAsync();
+    Task<IEnumerable<ProductBrand>> GetAllBrandsAsync();
     
-    Task<ProductBrand> GetProductBrandByIdAsync(string id);
+    Task<ProductBrand> GetBrandByIdAsync(string id);
 }

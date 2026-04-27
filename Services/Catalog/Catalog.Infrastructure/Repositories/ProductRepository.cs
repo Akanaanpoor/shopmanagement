@@ -2,7 +2,6 @@ using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
 using Catalog.Core.Specifications;
 using Catalog.Infrastructure.Configuration;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
