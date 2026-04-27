@@ -1,7 +1,9 @@
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
 using Catalog.Core.Specifications;
+using Catalog.Infrastructure.Configuration;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -13,13 +15,15 @@ public class ProductRepository : IProductRepository
     private readonly IMongoCollection<ProductType> _types;
     private readonly IMongoCollection<ProductBrand> _brands;
 
-    public ProductRepository(IConfiguration configuration)
+    public ProductRepository(IOptions<DatabaseConfiguration> configuration)
     {
-        var client = new MongoClient(configuration["DatabaseSettings:ConnectionString"]);
-        var database = client.GetDatabase(configuration["DatabaseSettings:DatabaseName"]);
-        _products = database.GetCollection<Product>(configuration["DatabaseSettings:ProductCollectionName"]);
-        _types = database.GetCollection<ProductType>(configuration["DatabaseSettings:TypeCollectionName"]);
-        _brands = database.GetCollection<ProductBrand>(configuration["DatabaseSettings:BrandCollectionName"]);
+        var configurations = configuration.Value;
+        
+        var client = new MongoClient(configurations.ConnectionString);
+        var database = client.GetDatabase(configurations.DatabaseName);
+        _products = database.GetCollection<Product>(configurations.ProductCollectionName);
+        _types = database.GetCollection<ProductType>(configurations.TypeCollectionName);
+        _brands = database.GetCollection<ProductBrand>(configurations.BrandCollectionName);
     }
 
     public async Task<IEnumerable<Product>> GetAllProducts()
